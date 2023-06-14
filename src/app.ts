@@ -1,9 +1,9 @@
-import express, { Application, NextFunction, Request, Response } from 'express'
+import express, { Application } from 'express'
 import cors from 'cors'
 
 import globalErrorHandler from './app/middlewares/globalErrorHandler'
-import { UserRouter } from './app/modules/users/users.routes'
-import ApiError from './errors/ApiError'
+import { UserRouter } from './app/modules/user/user.routes'
+
 const app: Application = express()
 
 // Coross Origine
@@ -18,11 +18,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api/v1/users/', UserRouter)
 
 //Testing
-app.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  res.send('Hello World!')
-  throw new ApiError(400, 'orebaba ki error', '')
-  next('ore baba')
-})
+// app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+//   throw new Error('Testing')
+// })
 
 // Error handle
 
