@@ -1,12 +1,13 @@
-import { NextFunction, Request, Response } from 'express'
-import userService from './user.service'
-import { logger } from '../../../shared/logger'
+import { RequestHandler } from 'express'
 
-const createUser = async (req: Request, res: Response, next: NextFunction) => {
+import { logger } from '../../../shared/logger'
+import { UserService } from './user.service'
+
+const createUser: RequestHandler = async (req, res, next) => {
   try {
     const data = req.body
     logger.info('data:', data)
-    const result = await userService.createUserDB(data.user)
+    const result = await UserService.createUserDB(data.user)
     logger.info('result:', result)
     res.status(200).json({
       sucsess: true,
@@ -24,6 +25,6 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
-export default {
+export const UserController = {
   createUser,
 }

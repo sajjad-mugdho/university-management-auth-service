@@ -164,3 +164,39 @@
   label: 'PH-Success',
   timestamp: '2023-06-13T13:54:33.246Z'
 }
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-13T13:54:42.041Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-13T13:54:42.059Z'
+}
+{
+  service: 'user-service',
+  user: { roleX: 'Student' },
+  level: 'info',
+  message: 'data:',
+  label: 'PH-Success',
+  timestamp: '2023-06-13T13:54:46.392Z'
+}
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-13T13:58:47.782Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-13T13:58:47.802Z'
+}
