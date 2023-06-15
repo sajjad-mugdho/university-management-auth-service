@@ -5,6 +5,8 @@ import { UserService } from './user.service'
 
 const createUser: RequestHandler = async (req, res, next) => {
   try {
+    //req-validation
+
     const data = req.body
     logger.info('data:', data)
     const result = await UserService.createUserDB(data.user)

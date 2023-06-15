@@ -1,0 +1,70 @@
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:31:43.214Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:31:43.229Z'
+}
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:36:42.633Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:36:42.669Z'
+}
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:44:30.595Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:44:30.629Z'
+}
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:45:38.033Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:45:38.056Z'
+}
+{
+  message: '🗃 Database Connected',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:55:22.085Z'
+}
+{
+  message: 'Example app listening on port 5000',
+  level: 'info',
+  service: 'user-service',
+  label: 'PH-Success',
+  timestamp: '2023-06-14T13:55:22.102Z'
+}

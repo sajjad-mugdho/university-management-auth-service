@@ -45,25 +45,18 @@ const logger = createLogger({
 })
 const errorLogger = createLogger({
   level: 'error',
-  format: combine(
-    label({ label: 'PH-Error' }),
-    timestamp(),
-    myFormat,
-    prettyPrint()
-  ),
-  defaultMeta: { service: 'user-service' },
+  format: combine(label({ label: 'PH' }), timestamp(), myFormat),
   transports: [
     new transports.Console(),
-
     new DailyRotateFile({
       filename: path.join(
         process.cwd(),
         'logs',
         'winston',
         'errors',
-        `phu-%DATE%-error.log`
+        'phu-%DATE%-error.log'
       ),
-      datePattern: 'YYYY-MM-DD-HH',
+      datePattern: 'YYYY-DD-MM-HH',
       zippedArchive: true,
       maxSize: '20m',
       maxFiles: '14d',

@@ -1,8 +1,8 @@
 import config from '../../../config'
 import ApiError from '../../../errors/ApiError'
-import { IUser } from './users.interface'
-import { User } from './users.model'
-import { genareteUserID } from './users.utils'
+import { IUser } from './user.interface'
+import { User } from './user.model'
+import { genareteUserID } from './user.utils'
 
 const createUserDB = async (user: IUser): Promise<IUser | null> => {
   //Auto genareted incrimental ID
