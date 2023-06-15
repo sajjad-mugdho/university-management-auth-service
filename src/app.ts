@@ -1,21 +1,21 @@
-import express, { Application } from 'express'
-import cors from 'cors'
+import express, { Application } from 'express';
+import cors from 'cors';
 
-import globalErrorHandler from './app/middlewares/globalErrorHandler'
-import { UserRouter } from './app/modules/user/user.routes'
+import globalErrorHandler from './app/middlewares/globalErrorHandler';
+import { UserRouter } from './app/modules/user/user.routes';
 
-const app: Application = express()
+const app: Application = express();
 
 // Coross Origine
-app.use(cors())
+app.use(cors());
 
 //parser
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Application
 
-app.use('/api/v1/users/', UserRouter)
+app.use('/api/v1/users/', UserRouter);
 
 //Testing
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
@@ -24,6 +24,6 @@ app.use('/api/v1/users/', UserRouter)
 
 // Error handle
 
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
-export default app
+export default app;
