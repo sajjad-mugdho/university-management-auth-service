@@ -1,0 +1,92 @@
+{
+  service: 'user-service',
+  title: 'Fall',
+  year: 2025,
+  code: '03',
+  startMonth: 'April',
+  endMonth: 'July',
+  level: 'info',
+  message: 'data:',
+  label: 'PH-Success',
+  timestamp: '2023-06-15T22:01:24.981Z'
+}
+{
+  service: 'user-service',
+  '$__': InternalCache {
+    activePaths: StateMachine {
+      paths: {
+        endMonth: 'require',
+        startMonth: 'require',
+        code: 'require',
+        year: 'require',
+        title: 'require'
+      },
+      states: {
+        require: {
+          endMonth: true,
+          startMonth: true,
+          code: true,
+          year: true,
+          title: true
+        },
+        default: {},
+        modify: {}
+      },
+      map: [Function (anonymous)]
+    },
+    op: null,
+    saving: null,
+    '$versionError': null,
+    saveOptions: null,
+    validating: null,
+    validationError: undefined,
+    cachedRequired: {},
+    backup: {
+      activePaths: {
+        modify: {
+          title: true,
+          year: true,
+          code: true,
+          startMonth: true,
+          endMonth: true,
+          createdAt: true,
+          updatedAt: true
+        },
+        default: { _id: true }
+      },
+      validationError: null,
+      errors: undefined
+    },
+    inserting: true,
+    savedState: {}
+  },
+  _doc: {
+    title: 'Fall',
+    year: 2025,
+    code: '03',
+    startMonth: 'April',
+    endMonth: 'July',
+    _id: new ObjectId("648b8a351c00dd501c16a2f4"),
+    createdAt: 2023-06-15T22:01:25.072Z,
+    updatedAt: 2023-06-15T22:01:25.072Z,
+    __v: 0
+  },
+  '$errors': undefined,
+  '$isNew': false,
+  level: 'info',
+  message: 'result:',
+  label: 'PH-Success',
+  timestamp: '2023-06-15T22:01:25.462Z'
+}
+{
+  service: 'user-service',
+  title: 'Fall',
+  year: 2025,
+  code: '03',
+  startMonth: 'April',
+  endMonth: 'July',
+  level: 'info',
+  message: 'data:',
+  label: 'PH-Success',
+  timestamp: '2023-06-15T22:01:27.373Z'
+}

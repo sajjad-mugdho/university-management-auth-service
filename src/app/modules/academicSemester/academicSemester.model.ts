@@ -3,28 +3,20 @@ import {
   AcademicSemesterModel,
   IAcademicSemester,
 } from './academicSemester.interface';
-
-const Month = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
+import {
+  academicSemesterCodes,
+  academicSemesterMonths,
+  academicSemesterTitles,
+} from './academicSemester.constant';
+import status from 'http-status';
+import ApiError from '../../../errors/ApiError';
 
 const academicSemesterSchema = new Schema<IAcademicSemester>(
   {
     title: {
       type: String,
       required: true,
-      enum: ['Autum', 'Summer', 'Fall'],
+      enum: academicSemesterTitles,
     },
     year: {
       type: Number,
@@ -33,24 +25,40 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
     code: {
       type: String,
       required: true,
-      enum: ['01', '02', '03'],
+      enum: academicSemesterCodes,
     },
     startMonth: {
       type: String,
       required: true,
-      enum: Month,
+      enum: academicSemesterMonths,
     },
     endMonth: {
       type: String,
       required: true,
-      enum: Month,
+      enum: academicSemesterMonths,
     },
   },
   {
     timestamps: true,
   }
 );
-export const User = model<IAcademicSemester, AcademicSemesterModel>(
+
+academicSemesterSchema.pre('save', async function (next) {
+  const isExist = await AcademicSemester.findOne({
+    title: this.title,
+    year: this.year,
+  });
+  if (isExist) {
+    throw new ApiError(
+      status.CONFLICT,
+      'Academic Semester is already exist',
+      ''
+    );
+  } else {
+    next();
+  }
+});
+export const AcademicSemester = model<IAcademicSemester, AcademicSemesterModel>(
   'AcademicSermester',
   academicSemesterSchema
 );
