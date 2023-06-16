@@ -1,31 +1,24 @@
-import { RequestHandler } from 'express';
+import { Request, Response } from 'express';
 
 import { logger } from '../../../shared/logger';
 import { AcademicSemesterSercvice } from './academicSemester.service';
-const cretaeSemester: RequestHandler = async (req, res, next) => {
-  try {
-    //req-validation
-
-    const { ...academicSemesterData } = req.body;
-    logger.info('data:', academicSemesterData);
-    const result = await AcademicSemesterSercvice.cretaeSemester(
-      academicSemesterData
-    );
-    logger.info('result:', result);
-    res.status(200).json({
-      sucsess: true,
-      message: 'Academic Semester Created Sucsessfully',
-      data: result,
-    });
-  } catch (error) {
-    next(error);
-
-    //   error: error,
-    //   // sucsess: false,
-    //   // message: `Failed to create user${error}`,
-    // })
-  }
-};
+import catchAsync from '../../../shared/catchAsync';
+import sendResponse from '../../../shared/sendResponse';
+import httpStatus from 'http-status';
+const cretaeSemester = catchAsync(async (req: Request, res: Response) => {
+  const { ...academicSemesterData } = req.body;
+  logger.info('data:', academicSemesterData);
+  const result = await AcademicSemesterSercvice.cretaeSemester(
+    academicSemesterData
+  );
+  logger.info('result:', result);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester Created Successfully',
+    data: result,
+  });
+});
 
 export const AcademicSemesterController = {
   cretaeSemester,
