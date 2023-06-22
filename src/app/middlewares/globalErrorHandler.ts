@@ -8,7 +8,7 @@ import ApiError from '../../errors/ApiError';
 import { logger } from '../../shared/logger';
 import handleZodError from '../../errors/handleZodError';
 
-const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
   config.env === 'development'
     ? // eslint-disable-next-line no-console
       console.log('🧨 global error handler', error)
@@ -57,6 +57,6 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
     errorMessage,
     stack: config.env !== 'production' ? error?.stack : undefined,
   });
-  next();
+  // next();
 };
 export default globalErrorHandler;
