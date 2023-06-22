@@ -11,12 +11,15 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
   logger.info('data:', data);
   const result = await UserService.createUserDB(data.user);
   logger.info('result:', result);
+
+  //
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User Created Successfully',
     data: result,
   });
+  // next();
 });
 
 export const UserController = {
