@@ -8,7 +8,8 @@ import ApiError from '../../errors/ApiError';
 import { logger } from '../../shared/logger';
 import handleZodError from '../../errors/handleZodError';
 
-const globalErrorHandler: ErrorRequestHandler = (error, req, res) => {
+// eslint-disable-next-line no-unused-vars
+const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   config.env === 'development'
     ? // eslint-disable-next-line no-console
       console.log('🧨 global error handler', error)

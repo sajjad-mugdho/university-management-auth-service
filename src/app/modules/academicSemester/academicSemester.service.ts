@@ -1,6 +1,9 @@
 import httpStatus from 'http-status';
 import ApiError from '../../../errors/ApiError';
-import { academicSemesterTitleCodeMapper } from './academicSemester.constant';
+import {
+  academicSemesterSearchableField,
+  academicSemesterTitleCodeMapper,
+} from './academicSemester.constant';
 
 import {
   IAcademicSemester,
@@ -30,7 +33,6 @@ const getAllSemesters = async (
 ): Promise<IGenericResponse<IAcademicSemester[]>> => {
   const { searchTerm, ...filtersData } = filters;
 
-  const academicSemesterSearchableField = ['title', 'code', 'yaer'];
   const andCondition = [];
 
   if (searchTerm) {
