@@ -41,7 +41,7 @@ const getAllSemesters = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.OK,
     success: true,
     message: 'Semesters retrieved successfully !',
-    // meta: result.meta,
+    meta: result.meta,
     data: result.data,
   });
 });
