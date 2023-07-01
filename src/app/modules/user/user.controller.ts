@@ -6,10 +6,10 @@ import catchAsync from '../../../shared/catchAsync';
 import sendResponse from '../../../shared/sendResponse';
 import httpStatus from 'http-status';
 
-const createUser = catchAsync(async (req: Request, res: Response) => {
-  const data = req.body;
-  logger.info('data:', data);
-  const result = await UserService.createUserDB(data.user);
+const createStudent = catchAsync(async (req: Request, res: Response) => {
+  const { student, ...studentData } = req.body;
+  logger.info('data:', studentData);
+  const result = await UserService.createStudent(student, studentData);
   logger.info('result:', result);
 
   //
@@ -23,5 +23,5 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const UserController = {
-  createUser,
+  createStudent,
 };
