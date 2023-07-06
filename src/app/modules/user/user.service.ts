@@ -5,10 +5,12 @@ import { AcademicSemester } from '../academicSemester/academicSemester.model';
 import { IStudent } from '../student/student.interface';
 import { IUser } from './user.interface';
 import { User } from './user.model';
-import { genareteStudentID } from './user.utils';
+import { genareteFacultyId, genareteStudentID } from './user.utils';
 import { Student } from '../student/student.model';
 import httpStatus from 'http-status';
 import { IAcademicSemester } from '../academicSemester/academicSemester.interface';
+import { IFaculty } from '../faculty/faculty.interface';
+import { Faculty } from '../faculty/faculty.model';
 
 const createStudent = async (
   student: IStudent,
@@ -85,6 +87,76 @@ const createStudent = async (
   return newUserAllData;
 };
 
+const createFaculty = async (
+  faculty: IFaculty,
+  user: IUser
+): Promise<IUser | null> => {
+  // default password
+  if (!user.password) {
+    user.password = config.default_student_password as string;
+  }
+  // set role
+  user.role = 'faculty';
+
+  // generate faculty id
+  let newUserAllData = null;
+  const session = await mongoose.startSession();
+  try {
+    session.startTransaction();
+
+    const id = await genareteFacultyId();
+    user.id = id;
+    faculty.id = id;
+
+    const newFaculty = await Faculty.create([faculty], { session });
+
+    if (!newFaculty.length) {
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        'Failed to create faculty ',
+        ''
+      );
+    }
+
+    user.faculty = newFaculty[0]._id;
+
+    const newUser = await User.create([user], { session });
+
+    if (!newUser.length) {
+      throw new ApiError(
+        httpStatus.BAD_REQUEST,
+        'Failed to create faculty',
+        ''
+      );
+    }
+    newUserAllData = newUser[0];
+
+    await session.commitTransaction();
+    await session.endSession();
+  } catch (error) {
+    await session.abortTransaction();
+    await session.endSession();
+    throw error;
+  }
+
+  if (newUserAllData) {
+    newUserAllData = await User.findOne({ id: newUserAllData.id }).populate({
+      path: 'faculty',
+      populate: [
+        {
+          path: 'academicDepartment',
+        },
+        {
+          path: 'academicFaculty',
+        },
+      ],
+    });
+  }
+
+  return newUserAllData;
+};
+
 export const UserService = {
   createStudent,
+  createFaculty,
 };
