@@ -5,6 +5,17 @@ import { ManagementDepartmanetController } from './managementDepartment.controll
 
 const router = express.Router();
 
+router.get('/', ManagementDepartmanetController.getAllDepartments);
+router.get('/:id', ManagementDepartmanetController.getSingleDepartment);
+router.delete('/:id', ManagementDepartmanetController.deleteDepartment);
+router.patch(
+  '/:id',
+  validateRequest(
+    ManagementDepartmanetValidation.updateManagementDepartmentZodSchema
+  ),
+  ManagementDepartmanetController.updateDepartment
+);
+
 router.post(
   '/create-management',
   validateRequest(

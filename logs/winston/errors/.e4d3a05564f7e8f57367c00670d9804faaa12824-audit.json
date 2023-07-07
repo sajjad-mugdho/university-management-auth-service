@@ -6,21 +6,6 @@
     "auditLog": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\.e4d3a05564f7e8f57367c00670d9804faaa12824-audit.json",
     "files": [
         {
-            "date": 1687518554555,
-            "name": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\phu-2023-23-06-17-error.log",
-            "hash": "484bf2eec20562c4e32be3d051d1baf6677394ac69cf046a5c3f7707b074a142"
-        },
-        {
-            "date": 1687552253034,
-            "name": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\phu-2023-24-06-02-error.log",
-            "hash": "6a59f9450c4fdb2a63d42549c54f10de9dae91fe52531cd19b527cced7cdeb03"
-        },
-        {
-            "date": 1687554214642,
-            "name": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\phu-2023-24-06-03-error.log",
-            "hash": "4ce627d32f29b0dd10e71e1e631b726c3cd74cf4e3f26089cc571f09a05f7b25"
-        },
-        {
             "date": 1687638676588,
             "name": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\phu-2023-25-06-02-error.log",
             "hash": "f18d6ee10dfddae5c7a0dd3033b9d2d831b8abb20e179c04ac92a7386c95e755"
@@ -109,6 +94,11 @@
             "date": 1688727851383,
             "name": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\phu-2023-07-07-17-error.log",
             "hash": "abdec252dadcec846ea3524876514bf6e2ccee7e1788dee8d5a48ce08c423cd9"
+        },
+        {
+            "date": 1688764673277,
+            "name": "C:\\next-level\\univarsity-management-auth-service\\logs\\winston\\errors\\phu-2023-08-07-03-error.log",
+            "hash": "937d7dce5a57432a28be9bbd08cfcadbc92d85fd23f57404bd1af8e63a90becf"
         }
     ],
     "hashType": "sha256"
