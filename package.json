@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc --watch",
+    "dev": "tsnd --respawn src/server.ts",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "build": "tsc",
     "lint:fix": "eslint --fix",
     "prettier:fix": "prettier --watch .",
     "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "lint:prettier": "yarn lint:check && yarn prettier:check",
-    "start": "tsnd --respawn src/server.ts",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
@@ -34,8 +35,10 @@
     "typescript": "*"
   },
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.59.7",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "eslint": "^8.0.1",
