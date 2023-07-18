@@ -5,7 +5,7 @@ import { ZodError } from 'zod';
 import handleValidationError from '../../errors/handleValidationError';
 import config from '../../config';
 import ApiError from '../../errors/ApiError';
-import { logger } from '../../shared/logger';
+
 import handleZodError from '../../errors/handleZodError';
 import handleCastError from '../../errors/handleCastError';
 
@@ -14,7 +14,7 @@ const globalErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
   config.env === 'development'
     ? // eslint-disable-next-line no-console
       console.log('🧨 global error handler', error)
-    : logger.error('🧨 global error handler', error);
+    : console.error('🧨 global error handler', error);
 
   let statusCode = 500;
   let message = 'Something Went Wrong';

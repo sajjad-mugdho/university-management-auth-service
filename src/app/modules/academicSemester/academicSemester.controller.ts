@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 
-import { logger } from '../../../shared/logger';
 import { AcademicSemesterSercvice } from './academicSemester.service';
 import catchAsync from '../../../shared/catchAsync';
 
@@ -13,11 +12,11 @@ import sendResponse from '../../../shared/sendResponse';
 
 const cretaeSemester = catchAsync(async (req: Request, res: Response) => {
   const { ...academicSemesterData } = req.body;
-  logger.info('data:', academicSemesterData);
+  console.log('data:', academicSemesterData);
   const result = await AcademicSemesterSercvice.cretaeSemester(
     academicSemesterData
   );
-  logger.info('result:', result);
+  console.log('result:', result);
 
   //
   sendResponse<IAcademicSemester>(res, {
